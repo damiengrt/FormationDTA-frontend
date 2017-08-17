@@ -5,7 +5,7 @@ rl = moduleReadline.createInterface(process.stdin, process.stdout),
     + "1. Liste de tous les présentateurs \n"
     + "2. Top présentateurs \n"
     + "3. Liste des sessions \n"
-    + "4. Détail d'une session \n"
+    + "4. Détail d'une session (choice: '4 id')\n"
     + "choice> ";
 
 rl.on('line', function (line) {
@@ -22,7 +22,11 @@ rl.on('line', function (line) {
             console.log(moduleService.listerToutesLesSessions());
             break;
         case '4':
-            console.log(moduleService.trouverUneSession(param));
+            if (param) {
+                console.log(moduleService.trouverUneSession(param));
+            } else {
+                console.log('Please specify an id');
+            }
             break;
         case '99':
             rl.close();
