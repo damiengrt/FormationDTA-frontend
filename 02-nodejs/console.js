@@ -8,32 +8,29 @@ rl = moduleReadline.createInterface(process.stdin, process.stdout),
     + "4. Détail d'une session (choice: '4 id')\n"
     + "choice> ";
 
+var choices = {
+    '1': moduleService.listerTousLesPresentateurs,
+    '2': moduleService.listerTopPresentateurs,
+    '3': moduleService.listerToutesLesSessions,
+    '4': function (param) {
+        if (param) {
+            return moduleService.trouverUneSession(param);
+        } else {
+            return 'Please specify an id';
+        }
+    }
+};
+
 rl.on('line', function (line) {
     var entry = line.split(" ")[0];
     var param = line.split(" ")[1];
-    switch (entry) {
-        case '1':
-            console.log(moduleService.listerTousLesPresentateurs());
-            break;
-        case '2':
-            console.log(moduleService.listerTopPresentateurs());
-            break;
-        case '3':
-            console.log(moduleService.listerToutesLesSessions());
-            break;
-        case '4':
-            if (param) {
-                console.log(moduleService.trouverUneSession(param));
-            } else {
-                console.log('Please specify an id');
-            }
-            break;
-        case '99':
-            rl.close();
-            break;
-        default:
-            console.log("Wrong choice. Try again...")
-            break;
+
+    if (entry === '99') {
+        rl.close();
+    } else if (entry >= '1' && entry <= Object.keys(choices).length.toString()) {
+        console.log(choices[entry](param));
+    } else {
+        console.log("Wrong choice. Try again...");
     }
     rl.prompt();
 }).on('close', function () {
