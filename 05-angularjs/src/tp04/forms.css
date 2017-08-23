@@ -1,0 +1,9 @@
+#tp04 input.ng-dirty.ng-invalid,
+#tp04 .ng-submitted input.ng-invalid {
+    background-color: red;
+}
+
+#tp04 input.ng-dirty.ng-valid,
+#tp04 .ng-submitted input.ng-valid {
+    color: green;
+}

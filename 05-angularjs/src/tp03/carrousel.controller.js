@@ -13,7 +13,9 @@ export default class CarrouselCtrl {
         ];
 
         this.currentId = 0;
-        this.$interval(() => this.next(), 1000);
+
+        // Uncomment follozing line in order to enable auto image rotation
+        // this.$interval(() => this.next(), 1000);
     }
 
     next() {

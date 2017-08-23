@@ -1,0 +1,49 @@
+<section id="tp04" ng-controller="FormCtrl as ctrl">
+    <h1>TP 04 - Formulaire</h1>
+
+    <!-- Test 1 : model binding -->
+    <!-- TODO : ajouter l'affichage des données saisies via un modèle -->
+    <form name="form1" novalidate>
+        Name: <input type="text" ng-model="user.name" /><br> E-mail: <input type="email" ng-model="user.email" /><br>
+    </form>
+    <div>
+        {{user | json}}
+    </div>
+    <!-- Test 2 : 2 états-->
+    <!-- TODO :
+    - ajouter un bouton de sauvegarde et un bouton de reset
+    - ajouter l'affichage de l'état édition et de l'état tampon
+    -->
+    <form name="form2" novalidate>
+        Name: <input type="text" ng-model="ctrl.user.name" /><br> E-mail: <input type="email" ng-model="ctrl.user.email"
+        /><br>
+        <button type="button" ng-click="ctrl.reset()">Reset</button>
+        <button type="button" ng-click="ctrl.update(ctrl.user)">Save</button>
+    </form>
+    <div>
+        Current: {{ctrl.user | json}}
+    </div>
+    <div>
+        Saved: {{ctrl.master | json}}
+    </div>
+    <!-- Test 3 : validation -->
+    <!-- TODO : ajouter une validation Angular avec affichage des erreurs et
+    utilisation des classes CSS -->
+    <form name="form3" novalidate>
+        Name: <input type="text" required ng-model="ctrl.user.name" name="userName" />
+        <div ng-show="form3.$submitted || form3.uName.$touched">
+            <div ng-show="form3.userName.$error.required">Tell us your name.</div>
+        </div>
+
+        <br> E-mail: <input type="email" required ng-model="ctrl.user.email" name="userEmail" />
+        <div ng-show="form3.$submitted || form3.uName.$touched">
+            <div ng-show="form3.userEmail.$error.required">Tell us your email.</div>
+            <div ng-show="form3.userEmail.$error.email">Not valid email</div>
+        </div>
+
+        <br>
+
+        <button type="button" ng-click="ctrl.reset()">Reset</button>
+        <button type="submit" ng-click="ctrl.update(ctrl.user)">Save</button>
+    </form>
+</section>
