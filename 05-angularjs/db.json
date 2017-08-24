@@ -34,7 +34,7 @@
       "imageUrl": "img/paris.jpg",
       "price": "100",
       "initialPrice": "200",
-      "description": "Test",
+      "description": "This is a test s",
       "comments": [
         {
           "id": "sky44",
@@ -154,7 +154,7 @@
       "imageUrl": "img/rio-de-janeiro.jpg",
       "price": "830",
       "initialPrice": "1000",
-      "description": "Quand les projecteurs du monde entier seront braqués sur Rio de Janeiro à l'occasion des Jeux olympiques de 2016, il y a de fortes chances que ce soit la terre entière qui tombe amoureuse de la perle du Brésil. Effectivement, les filles que vous croiserez sur la plage d'Ipanema sont bel et bien jeunes, grandes, bronzées et charmantes ! Quant à l'avenue commerçante, elle est incontournable. En qualité de plus grande statue de style Art déco au monde, le Christ Rédempteur attire les foules sur le mont Corcovado. Et au moment du Carnaval de Rio, la ville vibre au rythme des innombrables fêtes mêlant musique, danse et déguisements colorés.",
+      "description": "This is the descr for Rio",
       "steps": [
         {
           "number": 1,

@@ -14,13 +14,18 @@ export default class TripsDetailListCtrl {
     }
 
     displayDescrById(id) {
-        this.tripShown = this.TripResource.get({ tripId: id })
+        if (id !== this.tripShown.id) {
+            this.tripShown = this.TripResource.get({ tripId: id })
+        }
     }
 
     updateDescrOf(trip) {
         this.tripShown = this.TripResource.get({ tripId: trip.id }, (tripFound) => {
-            tripFound.description = trip.description;
-            tripFound.$update();
+            if (trip.description !== tripFound.description) {
+                tripFound.description = trip.description;
+                tripFound.$update();
+                console.log(`Trip's description of [${tripFound.name}] was updated successfully`);
+            }
         })
     }
 }
