@@ -1,0 +1,15 @@
+<section id="tp05" ng-controller="TripsListCtrl as ctrl">
+    <h1>TP 05 - Communication avec $http</h1>
+    <form name="ctrl.form" novalidate>
+        <ul ng-repeat="trip in ctrl.tripsList">
+            <li>
+                <input type="text" ng-model="trip.name" value="{{ trip.name }}">
+                 - <input type="text" ng-model="trip.price" value="{{ trip.price }}">
+                <input type="submit" value="Save" ng-click="ctrl.save(trip)">
+                <br><br>
+                <img src="{{ trip.imageUrl }}" alt="">
+            </li>
+        </ul>
+        <input type="submit" value="Reset" ng-click="ctrl.reset()">
+    </form>
+</section>
