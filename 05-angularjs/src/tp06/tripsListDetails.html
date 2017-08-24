@@ -1,0 +1,24 @@
+<style>
+    img {
+        cursor: pointer;
+    }
+</style>
+
+<section id="tp06" ng-controller="TripsDetailListCtrl as ctrl">
+    <h1>TP 06 - Communication avec $resource</h1>
+    <!-- TODO -->
+    <ul ng-repeat="trip in ctrl.trips">
+        <li>
+            <div>
+                <span>{{ trip.name }} - {{ trip.initialPrice }} €</span>
+            </div>
+            <div>
+                <img src="{{ trip.imageUrl }}" ng-click="ctrl.displayDescrById(trip.id)" alt="" width="250px" height="auto">
+            </div>
+            <div ng-show="ctrl.tripShown.id === trip.id" ng-cloak>
+                <textarea cols="80" rows="11" ng-model="trip.description"></textarea>
+                <button ng-click="ctrl.updateDescrOf(trip)">Update</button>
+            </div>
+        </li>
+    </ul>
+</section>
