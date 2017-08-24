@@ -26,6 +26,8 @@ export default class TripsDetailListCtrl {
                 tripFound.$update();
                 console.log(`Trip's description of [${tripFound.name}] was updated successfully`);
             }
+        }, (result) => {
+            console.log(`Couldn't find trip with id [${trip.id}]`);
         })
     }
 }
