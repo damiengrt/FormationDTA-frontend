@@ -5,6 +5,7 @@ export default class TripsDetailListCtrl {
         this.TripResource = this.$resource('http://localhost:3000/trips-details/:tripId', { tripId: '@id' }, {
             'update': { method: 'PUT' }
         })
+        
         this.findAllTripsDetail();
     }
 

@@ -1,0 +1,19 @@
+<section id="tp07" ng-controller="TripsCommentsCtrl as ctrl" ng-cloak>
+    <h1>TP 07 - Services</h1>
+    <select name="trips" id="trips" ng-model="tripId" ng-change="ctrl.loadTripData(tripId)">
+        <option ng-repeat="trip in ctrl.tripsLight" value="{{ trip.id }}">{{ trip.name }}</option>
+    </select>
+    <br><br>
+    <div ng-show="tripId">
+        <div class="images">
+            <img ng-repeat="step in ctrl.stepsImages" src="{{ step.imageUrl }}" alt="" width="30%" height="auto">
+        </div>
+        <ul>
+            <li ng-repeat="comment in ctrl.comments">
+                <strong>{{ comment.id }}</strong> : {{ comment.text }}
+            </li>
+        </ul>
+        <textarea ng-model="comment" name="comment" id="comment" cols="40" rows="7"></textarea>
+        <button type="submit" ng-click="ctrl.submitComment(tripId, comment)">Comment</button>
+    </div>
+</section>

@@ -2,7 +2,7 @@
   "trips": [
     {
       "id": "paris",
-      "name": "Paris test",
+      "name": "Paris",
       "imageUrl": "img/paris.jpg",
       "price": "88"
     },
