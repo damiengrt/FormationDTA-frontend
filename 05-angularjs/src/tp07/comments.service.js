@@ -11,24 +11,26 @@ export default function ($resource, $http, apiUrlsService) {
     }
 
     this.addComment = (tripId, comment) => {
-        return $http.get(apiUrlsService.full + '/' + tripId).then((result) => {
+        return $http.get(apiUrlsService.full + '/' + tripId)
+            .then((result) => {
 
-            let tripFound = result.data
-            let commentFormatted = {
-                "id": "anonymous",
-                "text": comment
-            }
+                let tripFound = result.data
+                let commentFormatted = {
+                    "id": "anonymous",
+                    "text": comment
+                }
 
-            if (tripFound.comments) {
-                tripFound.comments.push(commentFormatted);
-            } else {
-                tripFound.comments = [commentFormatted];
-            }
+                if (tripFound.comments) {
+                    tripFound.comments.push(commentFormatted);
+                } else {
+                    tripFound.comments = [commentFormatted];
+                }
 
-            return $http.patch(apiUrlsService.full + '/' + tripId, angular.toJson(tripFound)).then((result) => {
+                return $http.patch(apiUrlsService.full + '/' + tripId, angular.toJson(tripFound))
+            })
+            .then((result) => {
                 return "Comment added"
             })
-        })
     }
 
     return this

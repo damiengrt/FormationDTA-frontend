@@ -1,0 +1,22 @@
+<section id="tp08" ng-controller="raceController as ctrl" class="container">
+    <h1>TP 08 - Modules</h1>
+    <div>
+        <h3>Pariez !</h3>
+        <div class="btn-group">
+            <button ng-repeat="walker in ctrl.walkers" type="button" ng-click="ctrl.walkerBet = walker.name" class="btn btn-{{ walker.shirt }}">{{ walker.name }}</button>
+        </div>
+        <span ng-cloak ng-show="ctrl.walkerBet">Vous avez parié sur <strong>{{ ctrl.walkerBet }}</strong></span>
+    </div>
+
+    <div>
+        <h3>La course</h3>
+        <button ng-click="ctrl.start()">Lancer la course</button>
+        <br><br>
+        <div>
+            <div class="progress" ng-repeat="walker in ctrl.walkers">
+                <div class="progress-bar progress-bar-striped progress-bar-{{ walker.shirt }} active" role="progressbar" style="width: {{ walker.progress }}%">
+                </div>&nbsp {{ walker.name }} {{ walker.progress }}
+            </div>
+        </div>
+    </div>
+</section>
